@@ -1,17 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
-public class OnShoot : MonoBehaviour
+public class OnShootEqual : MonoBehaviour
 {
-    [SerializeField] public string character;
+    public static bool equallActivated;
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.tag == "Rasho Laser")
         {
-            Debug.Log(character);
-            TheCalculator.currentInput += character;
+            equallActivated = true;
+        }
+        else
+        {
+            equallActivated = false;
         }
     }
-
 }
