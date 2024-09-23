@@ -7,9 +7,15 @@ using System;
 public class TheCalculator : MonoBehaviour
 {
     public TextMeshProUGUI displayText;
+    public TextMeshProUGUI historial;
+    public List<string> lines = new List<string>();
 
     public static string currentInput = "";
+    private void Start()
+    {
+        //lines.Add("HOla");
 
+    }
     private double result = 0.0;
     public void Update()
     {
@@ -19,6 +25,7 @@ public class TheCalculator : MonoBehaviour
             Calculateresult();
         }
     }
+    //Lo siguiente lo saqué de la calculadora que tuvimos en el segundo cuatri, esto calcula el resultado de la operacion que se escribió
     public void Calculateresult()
     {
         try
@@ -26,6 +33,7 @@ public class TheCalculator : MonoBehaviour
             result = System.Convert.ToDouble(new System.Data.DataTable().Compute(currentInput, ""));
 
             currentInput = result.ToString();
+            //lines.Add(currentInput);
             UpdateDisplay();
 
         }
@@ -38,5 +46,6 @@ public class TheCalculator : MonoBehaviour
     private void UpdateDisplay()
     {
         displayText.text = currentInput;
+        //historial.text += lines[0];
     }
 }

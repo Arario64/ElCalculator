@@ -5926,6 +5926,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayText: {fileID: 606092321}
+  historial: {fileID: 1316008704}
+  lines: []
 --- !u!1001 &1771139419
 PrefabInstance:
   m_ObjectHideFlags: 0
