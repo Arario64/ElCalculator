@@ -24,6 +24,7 @@ public class TheCalculator : MonoBehaviour
         {
             Calculateresult();
         }
+        
     }
     //Lo siguiente lo saqué de la calculadora que tuvimos en el segundo cuatri, esto calcula el resultado de la operacion que se escribió
     public void Calculateresult()
@@ -33,19 +34,26 @@ public class TheCalculator : MonoBehaviour
             result = System.Convert.ToDouble(new System.Data.DataTable().Compute(currentInput, ""));
 
             currentInput = result.ToString();
+            lines.Add(currentInput);
             //lines.Add(currentInput);
             UpdateDisplay();
-
         }
         catch (System.Exception)
         {
             currentInput = "Error";
             UpdateDisplay();
         }
+        OnShootEqual.equallActivated= false;
     }
     private void UpdateDisplay()
     {
         displayText.text = currentInput;
-        //historial.text += lines[0];
+        string hist = "";
+        for (int i = 0; i < lines.Count; i++)
+        {
+            hist += lines[i] + "\n";
+        }
+        historial.text = hist;
+        historial.text = hist;
     }
 }
